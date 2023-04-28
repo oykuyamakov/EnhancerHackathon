@@ -1,9 +1,8 @@
-using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Video;
 
-namespace Videos.Scripts
+namespace Videos
 {
     public class VideoSetter : MonoBehaviour
     {

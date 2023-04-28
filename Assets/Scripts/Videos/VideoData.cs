@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Videos.Scripts
+namespace Videos
 {
     [CreateAssetMenu]
     public class VideoData : ScriptableObject
