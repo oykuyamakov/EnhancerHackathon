@@ -15,9 +15,9 @@ namespace TimeManagement
         [ShowInInspector]
         public static int Minute { get; private set; }
 
-        public float MinuteToRealTime => m_Settings.MinuteToRealTime;
-        public int DayHour => m_Settings.DayHour;
-        public int NightHour => m_Settings.NightHour;
+        // public float MinuteToRealTime => m_Settings.MinuteToRealTime;
+        // public int DayHour => m_Settings.DayHour;
+        // public int NightHour => m_Settings.NightHour;
 
         private GeneralSettings m_Settings;
 
@@ -33,7 +33,7 @@ namespace TimeManagement
         {
             m_Settings = GeneralSettings.Get();
 
-            m_TimeElapsed = MinuteToRealTime;
+            //m_TimeElapsed = MinuteToRealTime;
         }
 
         private void Update()
@@ -53,22 +53,22 @@ namespace TimeManagement
                     CallHourEvent();
                 }
 
-                m_TimeElapsed = MinuteToRealTime;
+                //m_TimeElapsed = MinuteToRealTime;
             }
         }
 
         private void CallHourEvent()
         {
             using var hourEvent = HourChangedEvent.Get().SendGlobal();
-
-            if (Hour == DayHour)
-            {
-                using var dayEvent = TransitionToDayEvent.Get().SendGlobal();
-            }
-            else if (Hour == NightHour)
-            {
-                using var nightEvent = TransitionToNightEvent.Get().SendGlobal();
-            }
+            //
+            // if (Hour == DayHour)
+            // {
+            //     using var dayEvent = TransitionToDayEvent.Get().SendGlobal();
+            // }
+            // else if (Hour == NightHour)
+            // {
+            //     using var nightEvent = TransitionToNightEvent.Get().SendGlobal();
+            // }
         }
 
         private void CallMinuteEvent()

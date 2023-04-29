@@ -24,7 +24,7 @@ namespace SettingImplementations
                     {
 #if UNITY_EDITOR
                         Debug.Log("General Settings");
-                        // _BossOnesettings = CreateInstance<GeneralSettings>();
+                        // _GeneralSettings = CreateInstance<GeneralSettings>();
                         // var path = "Assets/Resources/Settings/GeneralSettings.asset";
                         // AssetDatabaseHelpers.CreateAssetMkdir(_GeneralSettings, path);
 #else
@@ -42,26 +42,11 @@ namespace SettingImplementations
             return generalSettings;
         }
 
-        //public string InitialSaveName;
 
-        public Sound m_UISelect;
-        public Sound m_StartSound;
-        
-        public float SceneTransitionDuration = 2f;
-        
-        public float IntroWaitDuration = 2f;
-
-        public float MinuteToRealTime = 0.7f;
-
-        public float LoadingFadeInDuration = 0.8f;
-        public float LoadingFadeOutDuration = 0.8f;
-
-        // TODO: HATE THE NAMES
-        public int DayHour = 10;
-        
-        public int NightHour = 20;
-
-        public IntVariable Level;
+        public float PlayerGravity = 20;
+        public float PlayerSpeed = 10;
+        public float PlayerJumpForce = 100;
+        public float JumpDuration = 0.5f;
 
     }
 
