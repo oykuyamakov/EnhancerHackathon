@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7579527f0e6264a4e961caa068e744c9, type: 3}
   m_Name: GeneralSettings
   m_EditorClassIdentifier: 
-  PlayerGravity: 20
-  PlayerSpeed: 10
-  PlayerJumpForce: 10
-  JumpDuration: 0.3
+  PlayerGravity: 100
+  PlayerSpeed: 40
+  PlayerJumpForce: 60
+  JumpDuration: 0.25

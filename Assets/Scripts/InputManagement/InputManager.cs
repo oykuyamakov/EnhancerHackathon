@@ -1,6 +1,7 @@
 using System;
 using Events;
 using InputManagement.EventImplementations;
+using Player;
 using SettingImplementations;
 using UnityCommon.Runtime.Extensions;
 using UnityEngine;
@@ -22,6 +23,10 @@ namespace InputManagement
             
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                if (!PlayerController.IsGrounded)
+                {
+                    return;
+                }
                 m_SpacePressed = true;
             }  
             if (Input.GetKeyUp(KeyCode.Space))
