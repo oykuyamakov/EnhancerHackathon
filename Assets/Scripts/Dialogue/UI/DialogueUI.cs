@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using Dialogue.EventImplementations;
 using Events;
 using TMPro;
@@ -39,7 +40,7 @@ namespace Dialogue.UI
         
         private void SetUI(DialogueNode node)
         {
-            DialogueText.text = $"{node.Speaker.ToString()} : {node.DialogueLine}";
+            DialogueText.DOText($"{node.Speaker.ToString()} : {node.DialogueLine}", 1f);
             SetDialogueOptionUis(node.DialogueOptions);
         }
 

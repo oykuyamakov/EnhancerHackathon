@@ -656,7 +656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &748142710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1737,17 +1737,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5811537030825072585, guid: 9e502d8fa1aa134438268748a9e670f4, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811537030825072585, guid: 9e502d8fa1aa134438268748a9e670f4, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: dae38af60afb1794eb80ae45b73a1906, type: 2}
+    - target: {fileID: 5811537030825072585, guid: 9e502d8fa1aa134438268748a9e670f4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7368319845316079020, guid: dae38af60afb1794eb80ae45b73a1906, type: 2}
+    - target: {fileID: 5811537030825072585, guid: 9e502d8fa1aa134438268748a9e670f4, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811537030825072585, guid: 9e502d8fa1aa134438268748a9e670f4, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811537030825072586, guid: 9e502d8fa1aa134438268748a9e670f4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -67
+      objectReference: {fileID: 0}
     - target: {fileID: 5811537031360740995, guid: 9e502d8fa1aa134438268748a9e670f4, type: 3}
       propertyPath: m_Alpha
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5811537031360740995, guid: 9e502d8fa1aa134438268748a9e670f4, type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5811537031360740995, guid: 9e502d8fa1aa134438268748a9e670f4, type: 3}
       propertyPath: m_BlocksRaycasts
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5811537031360741017, guid: 9e502d8fa1aa134438268748a9e670f4, type: 3}
       propertyPath: m_Name
@@ -1835,6 +1859,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5811537031360741021, guid: 9e502d8fa1aa134438268748a9e670f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811537031445802592, guid: 9e502d8fa1aa134438268748a9e670f4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811537031445802599, guid: 9e502d8fa1aa134438268748a9e670f4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811537032624403083, guid: 9e502d8fa1aa134438268748a9e670f4, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
