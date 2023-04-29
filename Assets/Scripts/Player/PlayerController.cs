@@ -11,14 +11,9 @@ namespace Player
     public class PlayerController : MonoBehaviour
     {
         private Rigidbody2D m_Rb;
-
-      
         private GeneralSettings m_Settings => GeneralSettings.Get();
-
         private float m_PlayerGravity => m_Settings.PlayerGravity;
-
         private float m_PlayerSpeed => m_Settings.PlayerSpeed;
-
         private float m_PlayerJumpForce => m_Settings.PlayerJumpForce;
 
         private void Awake()
