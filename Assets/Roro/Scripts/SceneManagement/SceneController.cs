@@ -124,7 +124,7 @@ namespace SceneManagement
 
                 //var duration = SceneId == SceneId.Loading & activate ? 0.45f : animate ? settings.SceneTransitionDuration : 0.5f;
                 var duration = SceneId == SceneId.Loading ? activate ? 
-                    m_Settings.LoadingFadeInDuration : m_Settings.LoadingFadeOutDuration : activate ? 0.35f : 0.45f;
+                    2 : 1: activate ? 0.35f : 0.45f;
                 
                 for (var i = 0; i < m_CanvasGroups.Count; i++)
                 {

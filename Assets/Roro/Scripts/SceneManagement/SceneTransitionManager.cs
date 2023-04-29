@@ -127,7 +127,7 @@ namespace SceneManagement
 
             yield return null;
 
-            yield return new WaitForSeconds(m_Settings.SceneTransitionDuration / 3f);
+          //  yield return new WaitForSeconds(m_Settings.SceneTransitionDuration / 3f);
 
             var sceneName = sceneId.GetName();
             var asyncOp = SceneManager.LoadSceneAsync(

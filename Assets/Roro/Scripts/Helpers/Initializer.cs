@@ -110,7 +110,7 @@ namespace Roro.Scripts.Helpers
 			yield return null;
 			yield return null;
 
-			yield return new WaitForSeconds(GeneralSettings.Get().IntroWaitDuration);
+			//yield return new WaitForSeconds(GeneralSettings.Get().IntroWaitDuration);
 		
 		
 			yield return null;
