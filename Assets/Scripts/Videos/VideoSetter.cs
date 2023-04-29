@@ -9,6 +9,8 @@ namespace Videos
     public class VideoSetter : MonoBehaviour
     {
         public static bool IsVideoPlaying;
+
+        public VideoUI VideoUi;
         
         [SerializeField]
         private VideoPlayer m_VideoPlayer;
@@ -31,6 +33,8 @@ namespace Videos
         [Button]
         public void PlayVideo(VideoData data, VideoPlayer.EventHandler onVideoEndReached = null)
         {
+            VideoUi.CrackTheScreen();
+            
             IsVideoPlaying = true;
             
             // m_VideoPlayer.playOnAwake = false;
@@ -58,6 +62,8 @@ namespace Videos
 
             m_VideoPlayer.Stop();
             ClearOutRenderTexture(m_videoRenderTexture);
+            
+            VideoUi.Disappear();
         }
 
         private void ClearOutRenderTexture(RenderTexture renderTexture)
