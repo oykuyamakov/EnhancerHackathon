@@ -48,6 +48,7 @@ namespace Player
         private void Awake()
         {
             m_SpriteController = GetComponent<SpriteController>();
+            m_ParentConstraint = GetComponent<ParentConstraint>();
             m_InitialScale = transform.localScale;
             m_Rb = GetComponent<Rigidbody2D>();
 
@@ -79,6 +80,15 @@ namespace Player
             else if(InputManager.MovementDirection.x < 0)
                 transform.localScale = new Vector3(-m_InitialScale.x, m_InitialScale.y, 1);
 
+            if (m_OnHorizontalPlace && InputManager.MovementDirection.magnitude < 0.1)
+            {
+                m_ParentConstraint.constraintActive = true;
+            }
+            else
+            {
+                m_ParentConstraint.constraintActive = false;
+            }
+            
             if (IsGrounded)
             {
                 RaycastHit2D hit = Physics2D.Raycast(m_RcPoint.position, Vector2.down, m_Distancce, LayerMask.GetMask("Ground"));
@@ -88,11 +98,17 @@ namespace Player
                     if (platformBehaviour.m_BehaviourType == PlatformBehaviourType.Horizontal)
                     {
                         m_OnHorizontalPlace = true;
-                        m_ParentConstraint.AddSource(new ConstraintSource
+                        if (m_ParentConstraint.sourceCount == 0)
                         {
-                            sourceTransform = platformBehaviour.transform,
-                            weight = 1
-                        });
+                            m_ParentConstraint.AddSource(new ConstraintSource
+                            {
+                                sourceTransform = platformBehaviour.transform,
+                                weight = 1
+                            });
+                            
+                            m_ParentConstraint.locked = true;
+                        }
+                       
                     }else if (m_OnHorizontalPlace)
                     {
                         m_OnHorizontalPlace = false;
