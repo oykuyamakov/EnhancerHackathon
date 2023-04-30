@@ -15,11 +15,6 @@ namespace LevelManagement
         [SerializeField][HideInInspector]
         private int m_Counter;
         
-        [Range(0,100)][SerializeField]
-        private int m_PlatformCount;
-
-        [SerializeField]
-        private List<GameObject> m_Platforms = new List<GameObject>();
 
         [Button]
         public void Reses()
@@ -50,7 +45,6 @@ namespace LevelManagement
             platform.transform.position = transform.position + Vector3.right * (m_Offset * m_Counter);
             platform.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - (1 * m_Counter);
             m_Counter++;
-            m_Platforms.Add(platform);
         }
         
     }
