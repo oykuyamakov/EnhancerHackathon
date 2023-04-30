@@ -30260,6 +30260,34 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1629940413392467807, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 831.8546
+      objectReference: {fileID: 0}
+    - target: {fileID: 1629940413392467807, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 617.0419
+      objectReference: {fileID: 0}
+    - target: {fileID: 1629940413392467807, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2298
+      objectReference: {fileID: 0}
+    - target: {fileID: 1629940413392467807, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2298
+      objectReference: {fileID: 0}
+    - target: {fileID: 1629940413392467807, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2298
+      objectReference: {fileID: 0}
+    - target: {fileID: 1629940413392467807, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -414.69434
+      objectReference: {fileID: 0}
+    - target: {fileID: 1629940413392467807, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -325.36353
+      objectReference: {fileID: 0}
     - target: {fileID: 3021234723819830353, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
       propertyPath: DialogueNodes.Array.size
       value: 8
@@ -30272,10 +30300,46 @@ PrefabInstance:
       propertyPath: DialogueNodes.Array.data[7]
       value: 
       objectReference: {fileID: 11400000, guid: 11c8265e3c1ea7b4692d23605b868e59, type: 2}
+    - target: {fileID: 3359225222847017720, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 831.8546
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359225222847017720, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 617.0419
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359225222847017720, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -414.69434
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359225222847017720, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -325.36353
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425209346488387484, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425209346488387484, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425209346488387484, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070565645906449714, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6070565645906449725, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
       propertyPath: BackgroundMusic
       value: 
       objectReference: {fileID: 592200187}
+    - target: {fileID: 8119104193757835083, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
+      propertyPath: m_AspectRatio
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9164389712364523268, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -30326,7 +30390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9164389712364523269, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 910490033, guid: cc0f258504fbddb438860485a1a13f95, type: 3}
