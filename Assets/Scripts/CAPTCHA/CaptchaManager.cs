@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using CAPTCHA.EventImplementations;
 using CAPTCHA.UI;
+using Dialogue.EventImplementations;
 using Events;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -35,6 +36,9 @@ namespace CAPTCHA
             
             var randIndex = Random.Range(0, CaptchaData.Count);
             CaptchaUI.SetUI(CaptchaData[randIndex]);
+
+            using var dialogueEvt =
+                DialogueEvent.Get(Dialogue.Dialogue.Captcha).SendGlobal((int)DialogueEventType.Load);
         }
 
         private void OnWrongChosen(CaptchaEvent evt)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using Dialogue.EventImplementations;
@@ -19,10 +20,13 @@ namespace Dialogue.UI
         public DialogueOptionUI DialogueOptionPrefab;
         public List<DialogueOptionUI> DialogueOptionUis = new List<DialogueOptionUI>();
 
-        private void OnEnable()
+        private void Awake()
         {
             CreateDialogueOptionUis(5);
-            
+        }
+
+        private void OnEnable()
+        {
             GEM.AddListener<DialogueEvent>(OnStartDialogue, Priority.High, (int)DialogueEventType.Start);
             GEM.AddListener<DialogueEvent>(OnFinishDialogue, Priority.High, (int)DialogueEventType.Finish);
         }

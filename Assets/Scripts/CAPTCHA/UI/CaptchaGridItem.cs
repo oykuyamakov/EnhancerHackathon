@@ -16,8 +16,9 @@ namespace CAPTCHA.UI
         public void SetUI(bool correctTile)
         {
             m_IsCorrectTile = correctTile;
-            Image.color = Color.clear;
-            Image.DOFade(0.1f, 0f);
+            
+            Image.color = Color.white;
+            Image.DOFade(1f, 0f);
         }
 
         private void OnEnable()
