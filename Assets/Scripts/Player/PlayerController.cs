@@ -52,7 +52,6 @@ namespace Player
 
             if (OnDeathZone && !m_Dead)
             {
-                Debug.Log("die");
                 m_Dead = true;
                 Die();
             }
