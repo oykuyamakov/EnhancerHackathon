@@ -50,7 +50,7 @@ VideoPlayer:
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
-  m_AspectRatio: 0
+  m_AspectRatio: 1
   m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
@@ -80,5 +80,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fbfcf4228375340a4d8843f294a269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VideoUi: {fileID: 0}
   m_VideoPlayer: {fileID: 1117642420204418421}
   m_videoRenderTexture: {fileID: 8400000, guid: 7f02161e85a3ade45928db3a2072ebf7, type: 2}

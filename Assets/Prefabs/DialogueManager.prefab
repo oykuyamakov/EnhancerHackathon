@@ -44,5 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3633e72c3d184ad38f6eab0ac74d86a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueNodes: []
-  AutoSkipTime: 0
+  DialogueNodes:
+  - {fileID: 11400000, guid: f826707aae8ff284c83c6b8e38bb7ecd, type: 2}
+  - {fileID: 11400000, guid: 3952665de1279164883a6de69fab342c, type: 2}
+  - {fileID: 11400000, guid: b13f2e01b95a7b14aa13c063e2e68ddf, type: 2}
+  - {fileID: 11400000, guid: b84de7c268fe60d42b1d0bc647ef2779, type: 2}
+  - {fileID: 11400000, guid: 548ae127a65447349aafca4e79beccab, type: 2}
+  - {fileID: 11400000, guid: 85e29dd6112306440a1463b5b84d0bec, type: 2}

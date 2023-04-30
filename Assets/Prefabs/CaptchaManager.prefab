@@ -46,5 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CaptchaUI: {fileID: 0}
   CaptchaData:
-  - {fileID: 11400000, guid: a7be8bf17a144174d96fd65cd65f430e, type: 2}
-  - {fileID: 11400000, guid: ba320304ab6489a48ba35293b56d51af, type: 2}
+  - {fileID: 11400000, guid: 050e43a0c5aa8684b86c3c6df02b230c, type: 2}
