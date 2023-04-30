@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ScreenCrack_Sound
   m_EditorClassIdentifier: 
   m_AudioClip: {fileID: 8300000, guid: ffcbba17c4a54884f9735d4eb4ccd70c, type: 3}
-  m_Volume: 0.75
+  m_Volume: 0.1
   m_Pitch: 1
   m_Loop: 0
   m_BPM: 0
