@@ -41,6 +41,12 @@ namespace CAPTCHA
             
             CaptchaUI.SetUI(CaptchaData[m_CaptchaIndex]);
 
+            if (m_CaptchaIndex == 0)
+            {
+                using var dialogueEvt =
+                    DialogueEvent.Get(Dialogue.Dialogue.AreyouRobot).SendGlobal((int)DialogueEventType.Load);
+            }
+            
             if (m_CaptchaIndex == 1)
             {
                 using var dialogueEvt =

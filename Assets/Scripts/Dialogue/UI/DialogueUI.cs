@@ -44,6 +44,11 @@ namespace Dialogue.UI
         
         private void SetUI(DialogueNode node)
         {
+            if (node.DialogueLine == " ")
+            {
+                return;
+            }
+            
             DialogueText.DOText($"{node.Speaker.ToString()} : {node.DialogueLine}", 1f);
             SetDialogueOptionUis(node.DialogueOptions);
         }

@@ -10,6 +10,7 @@ namespace Dialogue
         Designer = 1,
         Developer = 2,
         Artist = 3,
+        All = 4
     }
     
     [CreateAssetMenu(menuName = "Dialogue/Dialogue Node")]

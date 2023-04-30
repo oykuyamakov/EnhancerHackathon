@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Walking_Sound
   m_EditorClassIdentifier: 
   m_AudioClip: {fileID: 8300000, guid: f20ddeb66108dbb4f8ce7faad7557884, type: 3}
-  m_Volume: 0.45
+  m_Volume: 0.01
   m_Pitch: 1
   m_Loop: 0
   m_BPM: 0

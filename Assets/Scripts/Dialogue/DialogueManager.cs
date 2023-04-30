@@ -19,6 +19,8 @@ namespace Dialogue
         PlatformIssue = 3,
         Collider = 4,
         Captcha = 5,
+        Backroom = 6,
+        AreyouRobot = 7
     }
     
     public class DialogueManager : MonoBehaviour
@@ -37,6 +39,8 @@ namespace Dialogue
             DialogueStates.Add(Dialogue.PlatformIssue, false);
             DialogueStates.Add(Dialogue.Collider, false);
             DialogueStates.Add(Dialogue.Captcha, false);
+            DialogueStates.Add(Dialogue.Backroom, false);
+            DialogueStates.Add(Dialogue.AreyouRobot, false);
         }
 
         private void OnEnable()
