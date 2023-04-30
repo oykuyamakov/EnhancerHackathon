@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using Events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +23,8 @@ public class IntroSequence : MonoBehaviour
     public float ThiefText2Duration;
     public float RedScreenTransitionDuration;
 
+    public AudioSource BackgroundMusic;
+
     private void OnEnable()
     {
         TorrentItButton.onClick.AddListener(OnTorrentIt);       
@@ -29,6 +32,8 @@ public class IntroSequence : MonoBehaviour
 
     private void OnTorrentIt()
     {
+        using var soundEvt = SoundPlayEvent.Get(SoundType.Button).SendGlobal();
+
         Sequence introSequence = DOTween.Sequence();
         
         introSequence.Append(DownloadGamePanel.DOFade(0f, DownloadPanelFadeDuration));
@@ -44,6 +49,8 @@ public class IntroSequence : MonoBehaviour
             YouThiefText1.DOFade(0, 0f);
             YouThiefText2.DOFade(0, 0f);
             CanvasGroup.Toggle(false, 0.25f);
+
+            BackgroundMusic.Play();
         });
     }
 }

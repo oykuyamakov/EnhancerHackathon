@@ -17,6 +17,8 @@ namespace CAPTCHA
 
         public static bool WrongChosen = false;
 
+        private int m_CaptchaIndex;
+
         private void OnEnable()
         {
             GEM.AddListener<CaptchaEvent>(OnActivateCaptchaEvent, channel:(int)CaptchaEventType.Activate);
@@ -34,11 +36,18 @@ namespace CAPTCHA
         {
             WrongChosen = false;
             
-            var randIndex = Random.Range(0, CaptchaData.Count);
-            CaptchaUI.SetUI(CaptchaData[randIndex]);
+            // var randIndex = Random.Range(0, CaptchaData.Count);
+            // CaptchaUI.SetUI(CaptchaData[randIndex]);
+            
+            CaptchaUI.SetUI(CaptchaData[m_CaptchaIndex]);
 
-            using var dialogueEvt =
-                DialogueEvent.Get(Dialogue.Dialogue.Captcha).SendGlobal((int)DialogueEventType.Load);
+            if (m_CaptchaIndex == 1)
+            {
+                using var dialogueEvt =
+                    DialogueEvent.Get(Dialogue.Dialogue.Captcha).SendGlobal((int)DialogueEventType.Load);
+            }
+            m_CaptchaIndex++;
+            m_CaptchaIndex = Mathf.Clamp(m_CaptchaIndex, 0, CaptchaData.Count - 1);
         }
 
         private void OnWrongChosen(CaptchaEvent evt)

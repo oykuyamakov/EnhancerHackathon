@@ -75,6 +75,8 @@ namespace Dialogue
             
             using var dialogueEvent = DialogueEvent.Get(dialogueNode).SendGlobal((int)DialogueEventType.Start);
             
+            using var soundEvt = SoundPlayEvent.Get(SoundType.ScreenCrack).SendGlobal();
+
             Conditional.If(() => !VideoSetter.IsVideoPlaying)
                 .Do(OnVideoComplete);
         }

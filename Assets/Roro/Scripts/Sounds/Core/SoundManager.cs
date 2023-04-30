@@ -31,6 +31,8 @@ namespace Roro.Scripts.Sounds.Core
 
 		private int m_AvailableSourceCount;
 
+		public List<Sound> Sounds = new List<Sound>();
+
 		//private BoolVariable m_SoundsDisabled;
 
 		private void Awake()
@@ -39,7 +41,7 @@ namespace Roro.Scripts.Sounds.Core
 				return;
 
 			//m_SoundsDisabled = Var.Get<BoolVariable>("SFXDisabled");
-			
+
 			m_SourceIndex = 0;
 			m_LoopSourceIndex = 0;
 			
@@ -52,6 +54,12 @@ namespace Roro.Scripts.Sounds.Core
 
 		private void OnSoundPlayEvent(SoundPlayEvent evt)
 		{
+			if (evt.Sound == null)
+			{
+				PlaySoundFromType(evt);
+				return;
+			}
+			
 			if (evt.Loop)
 			{
 				PlayLoop(evt.Sound);
@@ -60,6 +68,19 @@ namespace Roro.Scripts.Sounds.Core
 			else
 			{				
 				PlaySound(evt.Sound);
+			}
+		}
+
+		private void PlaySoundFromType(SoundPlayEvent evt)
+		{
+			if (evt.Loop)
+			{
+				PlayLoop(Sounds[(int)evt.SoundType]);
+				evt.LoopIndex = m_LoopSourceIndex - 1;
+			}
+			else
+			{				
+				PlaySound(Sounds[(int)evt.SoundType]);
 			}
 		}
 

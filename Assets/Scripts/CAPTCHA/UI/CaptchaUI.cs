@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using CAPTCHA.EventImplementations;
+using DG.Tweening;
 using Events;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -43,7 +44,7 @@ namespace CAPTCHA.UI
             CanvasGroup.Toggle(true, 0.2f);
 
             CaptchaImage.sprite = data.CaptchaImage;
-            ItemToBeChosenText.text = data.ItemToBeChosen;
+            ItemToBeChosenText.DOText(data.ItemToBeChosen, 0.2f);
 
             SetGrids(data.RowAndColumnCount[0], data.RowAndColumnCount[1], data.CorrectTileIndexes);
         }
