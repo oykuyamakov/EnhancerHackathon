@@ -2,11 +2,13 @@ using System;
 using Events;
 using InputManagement;
 using InputManagement.EventImplementations;
+using LevelManagement;
 using Roro.Scripts.Helpers;
 using SettingImplementations;
 using UnityCommon.Modules;
 using UnityCommon.Runtime.Extensions;
 using UnityEngine;
+using UnityEngine.Animations;
 
 namespace Player
 {
@@ -33,6 +35,8 @@ namespace Player
         private float m_Distancce;
 
         private bool m_Dead;
+        
+        private ParentConstraint m_ParentConstraint;
 
         private void Awake()
         {
@@ -67,9 +71,43 @@ namespace Player
             else if(InputManager.MovementDirection.x < 0)
                 transform.localScale = new Vector3(-m_InitialScale.x, m_InitialScale.y, 1);
 
+            if (IsGrounded)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(m_RcPoint.position, Vector2.down, m_Distancce, LayerMask.GetMask("Ground"));
+
+                if (hit.transform.TryGetComponent<PlatformBehaviour>(out var platformBehaviour))
+                {
+                    if (platformBehaviour.m_BehaviourType == PlatformBehaviourType.Horizontal)
+                    {
+                        m_OnHorizontalPlace = true;
+                        m_ParentConstraint.AddSource(new ConstraintSource
+                        {
+                            sourceTransform = platformBehaviour.transform,
+                            weight = 1
+                        });
+                    }else if (m_OnHorizontalPlace)
+                    {
+                        m_OnHorizontalPlace = false;
+                        m_ParentConstraint.RemoveSource(0);
+                    }
+                }else if (m_OnHorizontalPlace)
+                {
+                    m_OnHorizontalPlace = false;
+                    m_ParentConstraint.RemoveSource(0);
+
+                }
+            }else if (m_OnHorizontalPlace)
+            {
+                m_OnHorizontalPlace = false;
+                m_ParentConstraint.RemoveSource(0);
+
+            }
+
             Move();
         }
 
+        private bool m_OnHorizontalPlace;
+        
         private void Move()
         {
             m_Rb.gravityScale = m_PlayerGravity;
@@ -94,7 +132,8 @@ namespace Player
 
             if (stairs)
             {
-                m_Rb.velocity += Vector2.up * 100f;
+                m_Rb.velocity = Vector2.zero;
+                m_Rb.position = m_LastGroundedPosition.WithZ(0) + Vector3.up;
             }
             
         }

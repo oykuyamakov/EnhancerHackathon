@@ -24,7 +24,7 @@ namespace LevelManagement
         private float m_MoveDuration = 2f;
         
         [SerializeField]
-        private PlatformBehaviourType m_BehaviourType;
+        public PlatformBehaviourType m_BehaviourType;
 
         private DebugSphere m_DebugSphere => GetComponent<DebugSphere>();
         
