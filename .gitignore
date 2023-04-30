@@ -17,7 +17,6 @@ remote_config_data
 # Ignore recordings
 /[Rr]ecordings/
 /[Rr]ecording/
-*.mp4
 *.mkv
 *.avi
 *.mov
