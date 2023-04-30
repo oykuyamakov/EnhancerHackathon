@@ -1,6 +1,4 @@
 using System;
-using CAPTCHA.EventImplementations;
-using Dialogue.EventImplementations;
 using Events;
 using InputManagement;
 using InputManagement.EventImplementations;
@@ -9,7 +7,6 @@ using Roro.Scripts.Helpers;
 using SettingImplementations;
 using UnityCommon.Modules;
 using UnityCommon.Runtime.Extensions;
-using UnityCommon.Variables;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -31,7 +28,7 @@ namespace Player
         public static bool IsGrounded;
         
         public static bool OnDeathZone;
-        
+
         private Vector3 m_InitialScale;
 
         [SerializeField]
@@ -41,18 +38,12 @@ namespace Player
         
         private ParentConstraint m_ParentConstraint;
 
-        public PlayerHealthUI PlayerHealthUI;
-        private IntVariable m_Health;
-        private bool m_FirstDamageTaken;
-        
         private void Awake()
         {
             m_SpriteController = GetComponent<SpriteController>();
             m_ParentConstraint = GetComponent<ParentConstraint>();
             m_InitialScale = transform.localScale;
             m_Rb = GetComponent<Rigidbody2D>();
-
-            m_Health = Variable.Get<IntVariable>("PlayerHealth");
         }
         
         private void FixedUpdate()
@@ -61,7 +52,7 @@ namespace Player
 
             if (OnDeathZone && !m_Dead)
             {
-                Debug.Log("die");
+                m_Dead = true;
                 Die();
             }
             
@@ -166,76 +157,26 @@ namespace Player
         
         private void Die()
         {
-            if(m_Dead)
-                return;
-            
-            m_Dead = true;
-            
             m_SpriteController.ChangeAnimation("Idle");
             m_Rb.constraints = RigidbodyConstraints2D.FreezeAll;
             m_SpriteController.ChangeColor(Color.red,true);
-            
-            if (!m_FirstDamageTaken)
-            {
-                m_FirstDamageTaken = true;
-                TriggerHealthUiEvent();
-            }
-            else
-            {
-                LooseHealth();
-            }
-        }
-        
-        private void LooseHealth()
-        {
-            m_Health.Add(-1);
 
-            if (m_Health.Value <= 0)
+            Conditional.Wait(1f).Do(() =>
             {
-                using var captchaEvt = CaptchaEvent.Get().SendGlobal((int)CaptchaEventType.Activate);
-                GEM.AddListener<CaptchaEvent>(OnCaptchaComplete, channel:(int)CaptchaEventType.Finish);
-            }
-            else
-            {
-                Conditional.Wait(1f).Do(Reborn);
-            }
-        }
+                m_Rb.velocity = Vector2.zero;
+                m_Rb.position = m_LastGroundedPosition.WithZ(0) + Vector3.up;
+                m_Rb.velocity = Vector2.zero;
+                m_Rb.constraints = RigidbodyConstraints2D.None;
+                m_Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                m_SpriteController.ChangeColor(Color.white, true);
 
-        private void Reborn()
-        {
-            m_Rb.velocity = Vector2.zero;
-            m_Rb.position = m_LastGroundedPosition.WithZ(0) + Vector3.up;
-            m_Rb.velocity = Vector2.zero;
-            m_Rb.constraints = RigidbodyConstraints2D.None;
-            m_Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            m_SpriteController.ChangeColor(Color.white, true);
-
-            Conditional.WaitFrames(10).Do(() =>
-            {
                 m_Dead = false;
             });
         }
 
-        private void OnCaptchaComplete(CaptchaEvent evt)
+        private void LooseHealth()
         {
-            m_Health.Value = 5;
-            Reborn();
-        }
-        
-        private void TriggerHealthUiEvent()
-        {
-            using var dialogueEvt =
-                DialogueEvent.Get(Dialogue.Dialogue.HealthUi).SendGlobal((int)DialogueEventType.Load);
             
-            GEM.AddListener<DialogueEvent>(HealthUiDialogueComplete, channel:(int)DialogueEventType.Finish);
-        }
-
-        private void HealthUiDialogueComplete(DialogueEvent evt)
-        {
-            PlayerHealthUI.EnableUI();
-            LooseHealth();
-            
-            GEM.RemoveListener<DialogueEvent>(HealthUiDialogueComplete);
         }
     }
 }

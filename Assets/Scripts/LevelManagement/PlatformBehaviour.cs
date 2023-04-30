@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityCommon.Modules;
@@ -25,9 +27,9 @@ namespace LevelManagement
         
         [SerializeField]
         public PlatformBehaviourType m_BehaviourType;
-
-        private DebugSphere m_DebugSphere => GetComponent<DebugSphere>();
         
+        private List<SpriteRenderer> m_SpriteRenderers = new List<SpriteRenderer>();
+
 
         private void Awake()
         {
@@ -62,7 +64,7 @@ namespace LevelManagement
         
         public void Crash()
         {
-            
+            transform.DOShakeRotation(0.5f, 2f, 5, 90f, false).SetLoops(-1,LoopType.Yoyo);
         }
 
         public void Stair()
@@ -74,16 +76,22 @@ namespace LevelManagement
         {
             if(m_BehaviourType != PlatformBehaviourType.Crash)
                 return;
-
+            
             if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
+                m_SpriteRenderers = GetComponentsInChildren<SpriteRenderer>().ToList();
+                
                 Conditional.Wait(0.1f).Do(() =>
                 {
-                    GetComponent<SpriteRenderer>().DOColor(Color.clear, 0.2f).SetLoops(3).OnComplete(() =>
-                    {
-                        GetComponent<SpriteRenderer>().enabled = false;
-                        GetComponent<Collider2D>().enabled = false;
+                    m_SpriteRenderers.ForEach(renderer =>
+                    { 
+                        renderer.DOColor(Color.clear, 0.2f).SetLoops(3).OnComplete(() =>
+                        {
+                            renderer.enabled = false;
+                            GetComponent<Collider2D>().enabled = false;
+                        });
                     });
+                   
                 });
             }
         }
